@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Net;
 
 namespace MCAT
 {
@@ -14,6 +15,16 @@ namespace MCAT
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string Address = "https://minecraft.net/download";
+            WebClient WebC = new WebClient();
+
+            string Container = WebC.DownloadString(Address);
+
+            label1.Text = Container;
         }
     }
 }
