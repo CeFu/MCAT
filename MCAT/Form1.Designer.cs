@@ -42,6 +42,7 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -60,21 +61,21 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(941, 63);
+            this.textBox3.Location = new System.Drawing.Point(742, 125);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 3;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(941, 89);
+            this.numericUpDown1.Location = new System.Drawing.Point(742, 151);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 4;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(941, 115);
+            this.numericUpDown2.Location = new System.Drawing.Point(742, 177);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown2.TabIndex = 5;
@@ -99,7 +100,7 @@
             this.toolStripStatusLabel8});
             this.statusStrip1.Location = new System.Drawing.Point(0, 375);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1127, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(878, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -114,14 +115,6 @@
             this.ToolStripVersion.Name = "ToolStripVersion";
             this.ToolStripVersion.Size = new System.Drawing.Size(157, 17);
             this.ToolStripVersion.Text = "Unknown - Please run check";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1127, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // label1
             // 
@@ -151,11 +144,22 @@
             this.toolStripStatusLabel8.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel8.Text = "toolStripStatusLabel8";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(497, 76);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(211, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Download JAR (TEST)";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 397);
+            this.ClientSize = new System.Drawing.Size(878, 397);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -166,7 +170,8 @@
             this.Controls.Add(this.consoleControl1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MCAT - Version 0.0.2a";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -192,6 +197,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
+        private System.Windows.Forms.Button button2;
     }
 }
 
