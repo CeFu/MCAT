@@ -19,6 +19,11 @@ namespace MCAT
         HtmlWeb client = new HtmlWeb();
         String ServerVersion;
 
+        decimal MinSet, MaxSet;
+        bool IsGarbage, IsGui, isArgs;
+        string JarName;
+
+
         //Brb
         public Form1()
         {
@@ -72,6 +77,7 @@ namespace MCAT
             string RemoteDLUri = "https://s3.amazonaws.com/Minecraft.Download/versions/" + ServerVersion + "/" + FileName;
             WebC.DownloadFile(RemoteDLUri, FileName);
         }
+
         private void cbGarbage_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -84,20 +90,39 @@ namespace MCAT
 
         private void MinUpDown_ValueChanged(object sender, EventArgs e)
         {
-            
-
+            MinSet = MinUpDown.Value;
+            label1.Text = MinSet.ToString();
         }
 
         private void MaxUpDown_ValueChanged(object sender, EventArgs e)
         {
-
+            MaxSet = MaxUpDown.Value;
+            label2.Text = MaxSet.ToString();
 
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripStart_Click(object sender, EventArgs e)
         {
-            CControl.WriteInput("java -Xms128M -Xmx512m -XX:MaxHeapSize=256m -XX:PermSize=256m -jar server.jar", Color.Transparent, true);
+            if (MinSet >= 128)
+            {
+                if (MaxSet >= 256)
+                {
+                    CControl.WriteInput("java -Xms" + MinSet + "M " + "-Xmx" + MaxSet + "M " + "-XX:MaxHeapSize=256m -XX:PermSize=256m -jar " + JarName + ".jar", Color.Transparent, true);
+                }
+                else
+                {
+                    MessageBox.Show("Please input Max amount of RAM");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please input Min-RAM");
+            }
         }
 
+        private void tbJarName_TextChanged(object sender, EventArgs e)
+        {
+            JarName = tbJarName.Text;
+        }
     }
 }

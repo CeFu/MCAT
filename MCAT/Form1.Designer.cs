@@ -46,17 +46,22 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnGenerate = new System.Windows.Forms.Button();
             this.cbGarbage = new System.Windows.Forms.CheckBox();
             this.LabelCustomArgs = new System.Windows.Forms.Label();
             this.MaxRAM = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripStart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.CControl = new ConsoleControl.ConsoleControl();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbJarName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MinUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxUpDown)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -177,6 +182,8 @@
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -218,6 +225,10 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.tbJarName);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.BtnGenerate);
             this.tabPage1.Controls.Add(this.cbGarbage);
             this.tabPage1.Controls.Add(this.LabelCustomArgs);
@@ -231,7 +242,25 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(372, 282);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Batch File Settings";
+            this.tabPage1.Text = "Server/Batch Options";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(98, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(98, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "label1";
             // 
             // BtnGenerate
             // 
@@ -276,7 +305,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.toolStripStart,
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4,
@@ -287,16 +316,16 @@
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripStart
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(86, 22);
-            this.toolStripButton1.Text = "Start Server";
-            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripStart.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStart.Image")));
+            this.toolStripStart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripStart.Name = "toolStripStart";
+            this.toolStripStart.Size = new System.Drawing.Size(86, 22);
+            this.toolStripStart.Text = "Start Server";
+            this.toolStripStart.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolStripStart.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripStart.Click += new System.EventHandler(this.toolStripStart_Click);
             // 
             // toolStripButton2
             // 
@@ -344,6 +373,29 @@
             this.CControl.ShowDiagnostics = false;
             this.CControl.Size = new System.Drawing.Size(484, 286);
             this.CControl.TabIndex = 14;
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // tbJarName
+            // 
+            this.tbJarName.Location = new System.Drawing.Point(242, 147);
+            this.tbJarName.Name = "tbJarName";
+            this.tbJarName.Size = new System.Drawing.Size(100, 20);
+            this.tbJarName.TabIndex = 19;
+            this.tbJarName.TextChanged += new System.EventHandler(this.tbJarName_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(181, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Jar Name:";
             // 
             // Form1
             // 
@@ -395,7 +447,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label MaxRAM;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripStart;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
@@ -406,6 +458,11 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private ConsoleControl.ConsoleControl CControl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbJarName;
     }
 }
 
