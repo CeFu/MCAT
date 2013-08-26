@@ -19,7 +19,7 @@ namespace MCAT
         HtmlWeb client = new HtmlWeb();
         String ServerVersion;
 
-
+        //Brb
         public Form1()
         {
             InitializeComponent();
@@ -28,20 +28,30 @@ namespace MCAT
         private void Form1_Load(object sender, EventArgs e)
         {
             #region Check Current Version
-            //As regions name states, this area checks minecraft.net version.
-            HtmlAgilityPack.HtmlDocument doc = client.Load("https://minecraft.net/download");
-            HtmlNodeCollection Nodes = doc.DocumentNode.SelectNodes("//p//a[@href]");
 
-            ServerVersion = Regex.Replace(Nodes[4].InnerText, String.Empty).Remove(0, 1).TrimEnd('.');
-            ToolStripVersion.Text = ServerVersion;
+            try
+            {
+                //As regions name states, this area checks minecraft.net version.
+                HtmlAgilityPack.HtmlDocument doc = client.Load("https://minecraft.net/download");
+                HtmlNodeCollection Nodes = doc.DocumentNode.SelectNodes("//p//a[@href]");
+
+                ServerVersion = Regex.Replace(Nodes[4].InnerText, String.Empty).Remove(0, 1).TrimEnd('.');
+                ToolStripVersion.Text = ServerVersion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
             #endregion
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
+            #region Console
+
+            CControl.SendKeyboardCommandsToProcess = !CControl.SendKeyboardCommandsToProcess;
+
+            CControl.StartProcess("cmd", "");
 
 
+            #endregion
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -61,6 +71,32 @@ namespace MCAT
 
             string RemoteDLUri = "https://s3.amazonaws.com/Minecraft.Download/versions/" + ServerVersion + "/" + FileName;
             WebC.DownloadFile(RemoteDLUri, FileName);
+        }
+        private void cbGarbage_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnGenerate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MinUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void MaxUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            CControl.WriteInput("java -Xms128M -Xmx512m -XX:MaxHeapSize=256m -XX:PermSize=256m -jar server.jar", Color.Transparent, true);
         }
 
     }
